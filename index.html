@@ -39,6 +39,11 @@
   <button onclick="changeTitleTo('Hello')">
     Change title to "Hello"
   </button>
+  <br />
+  <br />
+
+  <input type="text" id="new-title-input" placeholder="New title..." />
+  <button onclick="changeTitleToInputValue()">Change title</button>
 
   <div id="container-node">
 
@@ -102,6 +107,16 @@
       // passed as parameter.
 
       h1Node.innerText = newTitle // We set the title to what the caller passed as parameter
+
+    }
+
+    function changeTitleToInputValue() {
+      let h1Node = document.querySelector('h1')
+
+      let titleInputNode = document.getElementById('new-title-input')
+      let newTitle = titleInputNode.value
+
+      h1Node.innerText = newTitle
     }
   </script>
 </body>
