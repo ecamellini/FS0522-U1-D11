@@ -58,6 +58,20 @@
 
   <button onclick="setH2Orange()">Toggle orange style on h2 tags</button>
 
+  <hr />
+  <h2>List of elements:</h2>
+
+  <input required type="text" id="new-element-text" placeholder="Insert text here..." />
+  <button onclick="addElementToList()">Add new element</button>
+
+  <div id="elements-list">
+    <!-- Elements will be added here... -->
+  </div>
+
+  <br />
+  <br />
+  <hr />
+
   <div id="container-node">
 
     <h2 id="demo-id" class="previous-class">ID (#demo-id)</h2>
@@ -166,7 +180,30 @@
       }
     }
 
+    function addElementToList() {
 
+      // Creating new HTML elements using JavaScript
+
+      // 1) Create the new element using document.createElement
+      let newDivNode = document.createElement('div')
+
+      // 2) Manipulate/modify the new tag to make it as you need it
+      //    (e.g., you add a text, a class, etc.)
+      let userInput = document.getElementById('new-element-text').value
+
+      if (userInput === '') {
+        alert("You need to insert some text in the new element.")
+      } else {
+
+        newDivNode.innerText = userInput
+
+        // 3) You append it somewhere to the DOM.
+        //    If you don't do this, your tag is just an object inside a variable...
+        //    But you are not showing it on the page.
+        let elementsListNode = document.getElementById('elements-list')
+        elementsListNode.appendChild(newDivNode)
+      }
+    }
   </script>
 </body>
 
