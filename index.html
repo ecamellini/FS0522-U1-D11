@@ -56,7 +56,7 @@
   <br />
   <br />
 
-  <button onclick="setH2Orange()">Set the h2 tags orange</button>
+  <button onclick="setH2Orange()">Toggle orange style on h2 tags</button>
 
   <div id="container-node">
 
@@ -141,10 +141,12 @@
       for (let i = 0; i < h2Nodes.length; i++) {
         let h2Node = h2Nodes[i]
 
-        h2Node.classList.add('orange-title')
+        h2Node.classList.toggle('orange-title')
         // Every tag that I select has a classList.
         // classList is a special object, where I can call some functions:
         // - add() to add a class to the list, for example
+        // - remove() to remove a class from the list
+        // - toggle() to toggle a class: add it if it's not there, remove it if it's there
 
         // Another way to do it would be modifying the style directly in JS:
         // h2Node.style.color = 'orange'
@@ -153,8 +155,18 @@
         // It's like writing style inline in the HTML.
         // We are not keeping separated the style, structure & logic of our page.
         // In JS -- we only want to define the logic, the behaviour, not the style.
+
+        // THIS IS THE SAME AS TOGGLING:
+        // if (h2Node.classList.contains('orange-title')) {
+        //   h2Node.classList.remove('orange-title')
+        // } else {
+        //   h2Node.classList.add('orange-title')
+        // }
+
       }
     }
+
+
   </script>
 </body>
 
