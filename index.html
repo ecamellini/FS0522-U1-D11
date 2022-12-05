@@ -30,6 +30,14 @@
       color: red;
     }
 
+    .orange-title {
+      color: orange;
+      text-decoration: underline;
+      font-weight: bold;
+      /* Any style that we want to appear on titles
+      that are made orange by clicking on the corresponding button */
+    }
+
   </style>
 </head>
 
@@ -44,6 +52,11 @@
 
   <input type="text" id="new-title-input" placeholder="New title..." />
   <button onclick="changeTitleToInputValue()">Change title</button>
+
+  <br />
+  <br />
+
+  <button onclick="setH2Orange()">Set the h2 tags orange</button>
 
   <div id="container-node">
 
@@ -117,6 +130,30 @@
       let newTitle = titleInputNode.value
 
       h1Node.innerText = newTitle
+    }
+
+    function setH2Orange() {
+
+      // 1) We select the tag/the tags that we want to manipulate
+      let h2Nodes = document.getElementsByTagName('h2') // All the h2 tags in the page.
+
+      // 2) We manipulate them, meaning we act on the tag object properites as need
+      for (let i = 0; i < h2Nodes.length; i++) {
+        let h2Node = h2Nodes[i]
+
+        h2Node.classList.add('orange-title')
+        // Every tag that I select has a classList.
+        // classList is a special object, where I can call some functions:
+        // - add() to add a class to the list, for example
+
+        // Another way to do it would be modifying the style directly in JS:
+        // h2Node.style.color = 'orange'
+        // BUT it's better to avoid modifyng the style like this
+        // through JavaScript.
+        // It's like writing style inline in the HTML.
+        // We are not keeping separated the style, structure & logic of our page.
+        // In JS -- we only want to define the logic, the behaviour, not the style.
+      }
     }
   </script>
 </body>
